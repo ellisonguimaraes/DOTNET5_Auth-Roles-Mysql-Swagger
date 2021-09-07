@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AuthAPI</name>
+    </assembly>
+    <members>
+        <member name="M:AuthAPI.Controllers.UserController.Signin(AuthAPI.Models.DTO.LoginDTO)">
+            <summary> Efetuar login </summary>
+            <remarks>
+                Requisição: <br/>
+                {<br/>
+                    "email": "ellison.guimaraes@gmail.com",<br/>
+                    "password": "admin123"<br/>
+                }<br/>
+            </remarks>
+            <param name="loginDTO">Usuário (email) e Senha (password): </param>
+            <returns>Token retornado</returns>
+            <response code="200">OK - Usuário Autenticado</response>
+            <response code="400">BadRequest - Requisição do Cliente é Inválida</response>
+        </member>
+        <member name="M:AuthAPI.Controllers.UserController.Refresh(AuthAPI.Models.DTO.TokenDTO)">
+            <summary> Obter um RefreshToken </summary>
+            <remarks>
+                Requisição: <br/>
+                {<br/>
+                    "accessToken": "11f9dsfddasdasd48d9ds8f1ds",<br/>
+                    "refreshToken": "11f9dsfddasd9a41d"<br/>
+                }<br/>
+            </remarks>
+            <param name="tokenDTO">Token de Acesso (accessToken) e RefreshToken (refreshToken): </param>
+            <returns>Novo Token retornado</returns>
+            <response code="200">OK - Novo Token Gerado</response>
+            <response code="400">BadRequest - Requisição do Cliente é Inválida</response>
+        </member>
+        <member name="M:AuthAPI.Controllers.UserController.Revoke">
+            <summary> Deslogar </summary>
+            <response code="204">NoContent - Logout: RefreshToken Anulado</response>
+            <response code="400">BadRequest - Requisição do Cliente é Inválida</response>
+            <response code="401">Unauthorized - Usuário não Autorizado</response>
+        </member>
+        <member name="M:AuthAPI.Controllers.UserController.IsAuthenticated">
+            <summary> Verificar se está autenticado </summary>
+            <returns>Message</returns>
+            <response code="200">OK - Está Autenticado</response>
+            <response code="401">Unauthorized - Usuário não Autorizado</response>
+        </member>
+        <member name="M:AuthAPI.Controllers.UserController.IsAdmin">
+            <summary> Verificar se é um usuário admin </summary>
+            <returns>Message</returns>
+            <response code="200">OK - É Admin</response>
+            <response code="401">Unauthorized - Usuário não Autorizado</response>
+            <response code="403">Forbidden - Usuário não tem permissão no Endpoint</response>
+        </member>
+        <member name="M:AuthAPI.Controllers.UserController.IsNormal">
+            <summary> Verificar se é um usuário normal </summary>
+            <returns>Message</returns>
+            <response code="200">OK - É Normal</response>
+            <response code="401">Unauthorized - Usuário não Autorizado</response>
+            <response code="403">Forbidden - Usuário não tem permissão no Endpoint</response>
+        </member>
+    </members>
+</doc>
