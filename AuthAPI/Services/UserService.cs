@@ -47,8 +47,6 @@ namespace AuthAPI.Services
         {
             User user = _repository.GetByRefreshToken(tokenDTO.RefreshToken);
 
-            System.Console.WriteLine(_jwTUtils.ValidateJwTToken(tokenDTO.AccessToken));
-
             // É verificado se user n é nulo ou se está expirado.
             if (user == null || user.RefreshTokenExpiryTime <= DateTime.Now)
                 return null;
@@ -64,11 +62,8 @@ namespace AuthAPI.Services
             return token;
         }
 
-        public bool RevokeToken(string uniqueName)
+        public bool RevokeToken(User user)
         {
-            User user = _repository.GetByEmail(uniqueName);
-            if (user == null) return false;
-
             // Configura RefreshToken de User como nulo e atualiza o banco
             user.RefreshToken = null;
             _repository.Update(user);

@@ -52,6 +52,7 @@ namespace AuthAPI.Authorization
 
             // Definindo as Claims
             List<Claim> claims = new List<Claim>{
+                new Claim("id", user.Id.ToString()),
                 new Claim(ClaimTypes.Name, user.Email),
                 new Claim(ClaimTypes.Role, user.Role)
             };
@@ -85,13 +86,12 @@ namespace AuthAPI.Authorization
             return refreshToken;
         }
         
-        // Método não funciona e sem utilidade no código. (passível de retirada)
-        public string ValidateJwTToken(string token)
+        public int? ValidateJwTToken(string token)
         {
             if (token == null) return null;
-
+            
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_configuration.Secret);
+            var key = Encoding.UTF8.GetBytes(_configuration.Secret);
 
             try
             {
@@ -103,12 +103,11 @@ namespace AuthAPI.Authorization
                     IssuerSigningKey = new SymmetricSecurityKey(key),
                     ValidateLifetime = false
                 }, out SecurityToken validatedToken);
-
+                
                 var jwtToken = (JwtSecurityToken)validatedToken;
-                //var userId = int.Parse(jwtToken.Claims.First(x => x.Type == ClaimTypes.Name).Value);
-                var userId = jwtToken.Claims.First(x => x.Type == ClaimTypes.Name).Value;
+                var userId = int.Parse(jwtToken.Claims.First(x => x.Type == "id").Value);
 
-                // return user id from JWT token if validation successful
+                // Retorna o Id do User pelo JWT token se for validado com sucesso
                 return userId;
             }
             catch

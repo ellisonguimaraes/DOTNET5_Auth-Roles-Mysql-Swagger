@@ -85,7 +85,7 @@ namespace AuthAPI
                     }
                 });
 
-                // Configure Authentication in Docs
+                // Configure Authentication Support in Swagger Page
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme {
                     Description = @"JWT Authorization header using the Bearer scheme. 
                                 Enter 'Bearer' [space] and then your token in the text input below.
@@ -112,6 +112,7 @@ namespace AuthAPI
                     }
                 });
 
+                // Configure XML Comments to Swagger
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
@@ -142,6 +143,9 @@ namespace AuthAPI
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            // USE MIDDLEWARE JwTMiddleware
+            app.UseMiddleware<JwTMiddleware>();
             
             // USE AUTHENTICATION (1)
             app.UseAuthentication();

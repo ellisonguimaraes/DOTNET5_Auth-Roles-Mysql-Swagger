@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BoXAzrb7YNejPV05LzjjBMP2YLwbEWaOVf61rG4uUsn6VYQ4T7dkhamRbb3G1ayORDNi+gNxqgidARqE7ZRsIA==",
+  "dgSpecHash": "5wO94YgWnlaLUSGuytNJ5xsOfrpqIfVvPc2js1YMtAjPpxmzCQJx6dtuIyuX59iXX76L4vCo3BS+HHtQvqRLpg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ellis\\Desktop\\Auth\\AuthAPI\\AuthAPI.csproj",
+  "projectFilePath": "C:\\Users\\ellis\\Desktop\\DOTNET5_Auth-Roles-Mysql-Swagger\\AuthAPI\\AuthAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ellis\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.9\\microsoft.aspnetcore.authentication.jwtbearer.5.0.9.nupkg.sha512",
     "C:\\Users\\ellis\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

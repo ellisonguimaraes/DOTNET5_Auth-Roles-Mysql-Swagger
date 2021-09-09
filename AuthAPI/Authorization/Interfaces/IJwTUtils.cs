@@ -8,6 +8,6 @@ namespace AuthAPI.Authorization.Interfaces
         TokenDTO GenerateToken(User user);
         string GenerateAccessToken(User user);
         string GenerateRefreshToken();
-        string ValidateJwTToken(string token);
+        int? ValidateJwTToken(string token);
     }
 }

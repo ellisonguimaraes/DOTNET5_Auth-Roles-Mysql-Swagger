@@ -1,3 +1,4 @@
+using AuthAPI.Models;
 using AuthAPI.Models.DTO;
 using AuthAPI.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
@@ -62,7 +63,7 @@ namespace AuthAPI.Controllers
             if (tokenDTO == null) return BadRequest("Invalid client request");
 
             TokenDTO token = _userService.RefreshToken(tokenDTO);
-            if (tokenDTO == null) return BadRequest("Invalid client request");
+            if (token == null) return BadRequest("Invalid client request");
 
             return Ok(token);
         }
@@ -78,10 +79,8 @@ namespace AuthAPI.Controllers
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public IActionResult Revoke()
         {   
-            string email = User.Identity.Name;
-            
-            if(!_userService.RevokeToken(email)) return BadRequest("Invalid client request");
-            
+            User user = (User)HttpContext.Items["User"];
+            if(!_userService.RevokeToken(user)) return BadRequest("Invalid client request");
             return NoContent();
         }
 
@@ -102,7 +101,7 @@ namespace AuthAPI.Controllers
         /// <response code="200">OK - É Admin</response>
         /// <response code="401">Unauthorized - Usuário não Autorizado</response>
         /// <response code="403">Forbidden - Usuário não tem permissão no Endpoint</response>
-        [Authorize(Roles = "admin")]
+        [Authorize(Roles = Roles.Admin)]
         [HttpGet("isadmin")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
@@ -116,7 +115,7 @@ namespace AuthAPI.Controllers
         /// <response code="200">OK - É Normal</response>
         /// <response code="401">Unauthorized - Usuário não Autorizado</response>
         /// <response code="403">Forbidden - Usuário não tem permissão no Endpoint</response>
-        [Authorize(Roles = "normal")]
+        [Authorize(Roles = Roles.Normal)]
         [HttpGet("isnormal")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]

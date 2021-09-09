@@ -7,6 +7,6 @@ namespace AuthAPI.Services.Interfaces
     {
         TokenDTO Authenticate(LoginDTO loginDTO);
         TokenDTO RefreshToken(TokenDTO tokenDTO);
-        bool RevokeToken(string uniqueName);
+        bool RevokeToken(User user);
     }
 }

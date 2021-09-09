@@ -1204,11 +1204,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ellis\\Desktop\\Auth\\AuthAPI\\AuthAPI.csproj",
+      "projectUniqueName": "C:\\Users\\ellis\\Desktop\\DOTNET5_Auth-Roles-Mysql-Swagger\\AuthAPI\\AuthAPI.csproj",
       "projectName": "AuthAPI",
-      "projectPath": "C:\\Users\\ellis\\Desktop\\Auth\\AuthAPI\\AuthAPI.csproj",
+      "projectPath": "C:\\Users\\ellis\\Desktop\\DOTNET5_Auth-Roles-Mysql-Swagger\\AuthAPI\\AuthAPI.csproj",
       "packagesPath": "C:\\Users\\ellis\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ellis\\Desktop\\Auth\\AuthAPI\\obj\\",
+      "outputPath": "C:\\Users\\ellis\\Desktop\\DOTNET5_Auth-Roles-Mysql-Swagger\\AuthAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
