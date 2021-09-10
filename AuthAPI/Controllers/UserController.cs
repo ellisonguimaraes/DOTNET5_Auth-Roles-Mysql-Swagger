@@ -20,11 +20,14 @@ namespace AuthAPI.Controllers
 
         /// <summary> Efetuar login </summary>
         /// <remarks>
-        ///     Requisição: <br/>
-        ///     {<br/>
-        ///         "email": "ellison.guimaraes@gmail.com",<br/>
-        ///         "password": "admin123"<br/>
-        ///     }<br/>
+        /// Exemplo de requisição:
+        /// 
+        ///     POST /signin
+        ///     {
+        ///        "email": "guilguimaraes2019@gmail.com",
+        ///        "password": "admin123"
+        ///     }
+        ///     
         /// </remarks>
         /// <param name="loginDTO">Usuário (email) e Senha (password): </param>
         /// <returns>Token retornado</returns>
@@ -45,11 +48,14 @@ namespace AuthAPI.Controllers
 
         /// <summary> Obter um RefreshToken </summary>
         /// <remarks>
-        ///     Requisição: <br/>
-        ///     {<br/>
-        ///         "accessToken": "11f9dsfddasdasd48d9ds8f1ds",<br/>
-        ///         "refreshToken": "11f9dsfddasd9a41d"<br/>
-        ///     }<br/>
+        /// Exemplo de requisição:
+        /// 
+        ///     POST /refresh
+        ///     {
+        ///        "accessToken": "11f9dsfddasdasd48d9ds8f1ds",
+        ///        "refreshToken": "11f9dsfddasd9a41d"
+        ///     }
+        ///     
         /// </remarks>
         /// <param name="tokenDTO">Token de Acesso (accessToken) e RefreshToken (refreshToken): </param>
         /// <returns>Novo Token retornado</returns>

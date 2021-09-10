@@ -1,15 +1,9 @@
 using System;
-using System.Text;
-using System.Linq;
 using AuthAPI.Authorization.Interfaces;
 using AuthAPI.Models;
-using AuthAPI.Models.Configuration;
-using AuthAPI.Models.Context;
 using AuthAPI.Models.DTO;
 using AuthAPI.Services.Interfaces;
-using System.Security.Cryptography;
 using AuthAPI.Repository.Interfaces;
-using Microsoft.AspNetCore.Authorization;
 
 namespace AuthAPI.Services
 {
@@ -17,13 +11,11 @@ namespace AuthAPI.Services
     {
         private readonly IUserRepository _repository;
         private readonly IJwTUtils _jwTUtils;
-        private readonly TokenConfiguration _tokenConfiguration;
 
-        public UserService(IUserRepository repository, IJwTUtils jwTUtils, TokenConfiguration tokenConfiguration)
+        public UserService(IUserRepository repository, IJwTUtils jwTUtils)
         {
             _repository = repository;
             _jwTUtils = jwTUtils;
-            _tokenConfiguration = tokenConfiguration;
         }
 
         public TokenDTO Authenticate(LoginDTO loginDTO)

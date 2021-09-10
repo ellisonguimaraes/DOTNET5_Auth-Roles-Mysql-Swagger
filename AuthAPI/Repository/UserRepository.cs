@@ -1,5 +1,4 @@
 using System;
-using System.Net.Mime;
 using System.Collections.Generic;
 using AuthAPI.Models;
 using AuthAPI.Repository.Interfaces;
